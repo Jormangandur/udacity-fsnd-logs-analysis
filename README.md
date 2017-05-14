@@ -6,16 +6,16 @@
 
 
 * request_stats
-    CREATE VIEW request_stats AS SELECT requests.date, requests.requests, errors.errors,ROUND(errors * 100.0 / requests, 1) AS error_percent FROM
-    ((SELECT log.time::date AS date,
+    CREATE VIEW request_stats AS SELECT requests.day, requests.requests, errors.errors,ROUND(errors * 100.0 / requests, 1) AS error_percent FROM
+    ((SELECT log.time::date AS day,
       count(*) AS requests
       FROM log
       GROUP BY 1
       ORDER BY requests DESC) requests
     JOIN
-    (SELECT log.time::date AS date2,
+    (SELECT log.time::date AS day2,
       count(*) AS errors
       FROM log
       WHERE log.status::text != '200 OK'
       group by 1 order by errors DESC) errors
-    ON date = date2);
+    ON day = day2);

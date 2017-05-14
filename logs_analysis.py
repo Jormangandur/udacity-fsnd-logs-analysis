@@ -37,13 +37,23 @@ def connect():
 
 @db_wrap
 def top_3_articles(cursor):
-    cursor.execute('''SELECT title, views FROM top_views LIMIT 3;''')
+    """Gets the top 3 most viewed articles of all time.
+
+    Returns:
+        List of tuples in form (article_title, views)
+    """
+    cursor.execute("SELECT title, views FROM top_views LIMIT 3;")
     result = cursor.fetchall()
     return result
 
 
 @db_wrap
 def top_3_authors(cursor):
+    """Gets the top 3 most viewed authors of all time.
+
+    Returns:
+        List of tuples in form (author_name, views)
+    """
     cursor.execute('''SELECT DISTINCT name,
                       sum(views) AS views
                       FROM top_views JOIN authors
@@ -57,9 +67,15 @@ def top_3_authors(cursor):
 
 @db_wrap
 def large_request_errors(cursor):
-    cursor.execute('''SELECT date, error_percent FROM request_stats
-                   WHERE error_percent > 1 ORDER BY error_percent DESC
-                   ;''')
+    """Gets any day with > 1 percent HTTP request errors.
+
+    Returns:
+        List of tuples in form (date, error_percentage)
+    """
+    cursor.execute('''SELECT day, error_percent
+                      FROM request_stats
+                      WHERE error_percent > 1
+                      ORDER BY error_percent DESC;''')
     result = cursor.fetchall()
     return result
 
