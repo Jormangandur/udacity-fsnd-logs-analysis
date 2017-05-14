@@ -55,18 +55,25 @@ def top_3_authors(cursor):
     return result
 
 
+@db_wrap
+def large_request_errors(cursor):
+    cursor.execute('''SELECT date, error_percent FROM request_stats
+                   WHERE error_percent > 1 ORDER BY error_percent DESC
+                   ;''')
+    result = cursor.fetchall()
+    return result
+
+
 top_articles = top_3_articles()
 top_authors = top_3_authors()
-print "The top 3 articles are:"
+large_request_errors = large_request_errors()
+
+print("The top 3 articles are:")
 for article in top_articles:
-    print " \"{0}\" - {1} views".format(article[0], article[1])
-
-
-@db_wrap
-def request_errors:
-    pass
-
-
-print "The top 3 authors are:"
+    print("\"{0}\" - {1} views".format(article[0], article[1]))
+print("The top 3 authors are:")
 for author in top_authors:
-    print " {0} - {1} views".format(author[0], author[1])
+    print("{0} - {1} views".format(author[0], author[1]))
+print("Days with > 1% HTTP request errors are:")
+for day in large_request_errors:
+    print("{0} - {1}%".format(day[0], day[1]))
