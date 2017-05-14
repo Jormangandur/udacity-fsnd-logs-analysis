@@ -18,15 +18,16 @@ Reporting tool to output plain text reports on the data in the `newsdata.sql` da
 6. Extract zip contents into cloned `/vagrant/udacity-fsnd-logs-analysis` directory
 7. Launch the VM:
   * `vagrant$ vagrant up`
-7. SSH into the VM:
+8. SSH into the VM:
   * On Mac/Linux `vagrant$ vagrant ssh`
     * Gives SSH connection details on windows
   * Windows use Putty or similar SSH client
-8. In the VM navigate to the `/vagrant/udacity-fsnd-logs-analysis` directory:
+9. In the VM navigate to the `/vagrant/udacity-fsnd-logs-analysis` directory:
   * `$ cd /vagrant/tournament`
-9. Load the data into the `news` database already in the VM:
+10. Load the data into the `news` database already in the VM:
   * `$psql -d news -f newsdata.sql`
-9. Run python report script:
+11. Run the two `CREATE VIEW` statements in the [Database Views](#database-views) section.
+12. Run python report script:
   * `$ python3 logs_analysis.py`
 
 ## Database Views
