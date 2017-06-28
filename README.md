@@ -1,5 +1,5 @@
 # Logs Analysis
-Udacity FSND Project - Logs Analysis
+![Part of the Udacity Front-End Web Development Nanodegree](https://img.shields.io/badge/Udacity-Front--End%20Web%20Developer%20Nanodegree-02b3e4.svg)
 ---------------------
 Reporting tool to output plain text reports on the data in the `newsdata.sql` database.
 
@@ -13,7 +13,7 @@ Reporting tool to output plain text reports on the data in the `newsdata.sql` da
 1. Ensure [Vagrant](https://www.vagrantup.com/), [Virtual Box](https://www.virtualbox.org/) and [Python](https://www.python.org/) are installed on your machine.
 2. Clone the Udacity [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm)
 3. Delete the `/tournament` directory in the clone.
-4. [Clone](https://github.com/Jormangandur/udacity-fsnd-logs-analysis.git) (or [download](https://github.com/Jormangandur/udacity-fsnd-logs-analysis/archive/master.zip)) this repo into the `/vagrant` directory.
+4. [Clone](https://github.com/SteadBytes/logs-analysis.git) (or [download](https://github.com/SteadBytes/logs-analysis/archive/master.zip)) this repo into the `/vagrant` directory.
 5. [Download](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) the `newsdata.sql` data file.
 6. Extract zip contents into cloned `/vagrant/udacity-fsnd-logs-analysis` directory
 7. Launch the VM:
